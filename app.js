@@ -1,22 +1,35 @@
+let playerWins = 0;
+let computerWins = 0;
+let p_text = document.querySelector("p");
 const outcomes = {
     rock: 'scissors',
     paper: 'rock',
     scissors: 'paper'
 };
+let choices = ["paper", "scissors", "rock"];
+
+let getPlayerChoice = function()  {return prompt("paper, scissors or rock?")};
+
+let button_print_test = document.createElement("button");
+
+document.body.appendChild(button_print_test);
+button_print_test.addEventListener("click", game);
+button_print_test.textContent = "Start round";
 
 function getComputerChoice() {
-    let choices = ["paper", "scissors", "rock"];
-    let randomNumber = Math.floor(Math.random() * 3);
-    console.log(choices[randomNumber])
-    return choices[randomNumber];
+    //console.log(choices[randomNumber])
+    return choices[Math.floor(Math.random() * 3)];
     
 }
 
 function playRound(playerSelection, computerSelection) {
+    console.log(`${playerSelection} + ${computerSelection}`);
+
     if (playerSelection === computerSelection) { //logic for picking winner
         return `Tie! you both picked ${playerSelection}!`; //if tie
     }
     else if (outcomes[playerSelection] === computerSelection) {
+
         playerWins++;
         return `You Win! ${playerSelection} beats ${computerSelection}!`; //if player win
     }
@@ -27,25 +40,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-
-    if (playerWins !== 5 || computerWins !== 5) {
-        let playerSelection = prompt("paper, scissors or rock?");
-        playRound(playerSelection, getComputerChoice);
+    if (playerWins === 2 || computerWins === 2) {
+        let gameWinner = playerWins > computerWins ? "Player" : "Computer";
+        p_text.textContent = (`${gameWinner} won the best of 5!`)
+        return;
+        //alert(`${gameWinner} won the best of 5!`);
     }
-    let gameWinner = (max(playerWins, computerWins));
-    console.log(`${gameWinner} won the best of 5!`);
+    else {
+        let computerSelection = getComputerChoice();
+        console.log(playRound(getPlayerChoice(), computerSelection));
+
+    }    
+    console.log(`pwins: ${playerWins} & cWins: ${computerWins}`);
     return;
 }
 
-
-
-//const playerSelection = prompt("paper scissors or rock?");
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-let button_print_test = document.createElement("button");
-button_print_test.addEventListener("click", getComputerChoice);
-document.body.appendChild(button_print_test);
-//game();
-console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+game();
