@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors!</title>
-    <script src="app.js" async> </script> </script>
+    <script src="app.js" defer> </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <p> test text</p>
-    <div class="test-div">
-        <img src="./images/rocks_paul_hermann.jpg" class="img1">
-
+    <div class="img-container">
+        <img title="background_paul_hermann" src="./images/rocks_paul_hermann.jpg" class="img1">
+        <div class="top-left">Top left</div>
+        <div class="top-right">Top right</div>
+        <div class="centre">Centre</div>
     </div>
+    <div class="selection">
+        <button class="rock" value="rock">Rock</button>
+        <button class="paper" value="paper">Paper</button>
+        <button class="scissors" value="scissors">Scissors</button>
+     </div>
+     <div id="resetDiv" style="display:none"> <button type="button" id="reset"> Play again! </button></div>
     
 </body>
 </html>
