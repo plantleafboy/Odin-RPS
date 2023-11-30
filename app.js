@@ -51,7 +51,8 @@ function game() {
         console.log(playRound(getPlayerChoice(), computerSelection));
 
     }    
-    console.log(`pwins: ${playerWins} & cWins: ${computerWins}`);
+    console.log(`pwins: ${playerWins} & cWins: ${computerWins}`)
+    console.log("----------------");
     return;
 }
 
