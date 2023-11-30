@@ -8,19 +8,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p> test text</p>
+    <p> hello friends! </p>
     <div class="img-container">
         <img title="background_paul_hermann" src="./images/rocks_paul_hermann.jpg" class="img1">
-        <div class="top-left">Top left</div>
-        <div class="top-right">Top right</div>
-        <div class="centre">Centre</div>
+        <div class="top-left">Player: 0</div>
+        <div class="top-right">CP : 0</div>
+        <div class="status-effect" id="statusEffect">
+            <div class="status-text entrance" id="statusText"> rock paper scissors :) </div>
+        </div>
+        <div id="resetDiv" style="display:none"> <button type="button" id="reset"> Play again! </button></div>
+
     </div>
     <div class="selection">
         <button class="rock" value="rock">Rock</button>
         <button class="paper" value="paper">Paper</button>
         <button class="scissors" value="scissors">Scissors</button>
      </div>
-     <div id="resetDiv" style="display:none"> <button type="button" id="reset"> Play again! </button></div>
     
 </body>
 </html>
